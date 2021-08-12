@@ -1,4 +1,3 @@
-# ZEEK
 # API Specification for ZeekSolutions - Circle K VN API Integration (Phase 5)
 
 # Changelog
@@ -10,56 +9,46 @@ Date|	Author|	Content
 # Introduction
 
 This document includes the APIs for Phase 5 integration, which is mainly the interaction between CKGo (ZeekSolutions) and NRI / Circle K Central Server.
-Tài liệu này bao gồm các API để tích hợp Giai đoạn 5, chủ yếu là sự tương tác giữa CKGo (ZeekSolutions) và Máy chủ trung tâm NRI / Circle K.
 
 # General
 
 ## ref_xxx_id parameters
 
 When you come across `ref_xxx_id` parameter, it is referring to the ID in client's system, ie. CKVN system.
-Khi bạn gặp tham số `ref_xxx_id`, tức là nó đang đề cập đến ID trong hệ thống của khách hàng. Hệ thống CKVN.
 
 ## Store
 
 In ZeekSolutions (CKGo), multiple stores (ie. Brand) are supported. At this moment, there is only one store for CKVN. Please get Store ID from Zeek team if needed.
-Trong ZeekSolutions (CKGo), nhiều cửa hàng (tức là. Thương hiệu) được hỗ trợ. Tại thời điểm này, chỉ có một cửa hàng duy nhất dành cho CKVN. Vui lòng lấy ID cửa hàng từ nhóm Zeek nếu cần.
 
 ## Location
 
-"Location" means restaurant / branch. There are multiple CKVN locations in the city.
-"Địa điểm" có nghĩa là nhà hàng / chi nhánh. Có nhiều địa điểm CKVN trong thành phố.
+"Location" means restaurant / branch. There are multiple CKVN locations in the city. 
 
 In ZeekSolutions, each location can sell different products. Therefore, you need to specify the location IDs when you update product. 
-Trong ZeekSolutions, mỗi địa điểm có thể bán các sản phẩm khác nhau. Do đó, bạn cần chỉ định ID vị trí khi cập nhật sản phẩm.
 
 ## Inventory
 
 ZeekSolutions support individual inventory number of a product in each location.
-ZeekSolutions hỗ trợ số lượng tồn kho riêng lẻ của một sản phẩm ở mỗi địa điểm.
 
 ## Combo items
 
 In ZeekSolutions, product supports Combo or a la carte. For a la carte products, they support inventory number. However, there is no inventory number for Combo product. The stock status of Combo product is deduced from its sub-items. 
-Trong ZeekSolutions, sản phẩm hỗ trợ Combo hoặc gọi món. Đối với các sản phẩm gọi món, họ hỗ trợ số lượng hàng tồn kho. Tuy nhiên, không có số lượng tồn kho cho sản phẩm Combo. Tình trạng còn hàng của sản phẩm Combo được suy ra từ các mặt hàng phụ của nó.
 
 ## Product options
 
 Merchant can set options for products, like "Sweetness level" for drinks. Options apply to both Combo and a la carte products. However, options do not count stock.
-Người bán có thể đặt các tùy chọn cho sản phẩm, chẳng hạn như "Mức độ ngọt" cho đồ uống. Các tùy chọn áp dụng cho cả sản phẩm Combo và gọi món. Tuy nhiên, quyền chọn không tính cổ phiếu.
 
 # API Authentication
 
 ## CKVN requests Zeek API
 
 You needs to include access token in each API calls. You can obtain the access token by GetAccessToken API. 
-Bạn cần bao gồm mã thông báo truy cập trong mỗi lệnh gọi API. Bạn có thể lấy mã thông báo truy cập bằng API GetAccessToken.
 
 Details will be provided later.
 
 ## Zeek requests CKVN API
 
 When Zeek requests CKVN API, a HMAC-SHA256 generated signature will be included. CKVN can verify the request by this signature. 
-Khi Zeek yêu cầu API CKVN, chữ ký được tạo HMAC-SHA256 sẽ được bao gồm. CKVN có thể xác minh yêu cầu bằng chữ ký này.
 
 Details will be provided later.
 
